@@ -1,0 +1,14 @@
+{% extends "common/layout.html" %}
+{% block title %}TEST{% endblock %}
+{% block container %}
+{% load static %}
+    {% if plans %}
+        <ul>
+        {% for plan in plans %}
+            <li><a href="{% url 'plans' %}">{{ plan.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+{% endblock %}

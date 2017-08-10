@@ -1,0 +1,27 @@
+{% extends "common/layout.html" %}
+{% block title %}TEST{% endblock %}
+{% block container %}
+	{% if error_message %}
+	<p><strong>{{ error_message }}</strong></p>
+	{% endif %}
+
+	{{form.errors}}
+
+	<form action="{% url 'plan_post' %}" method="post">
+		{% csrf_token %}
+
+		<div>
+			{{form.title}}
+		</div>
+		<div>
+			{{form.description}}
+		</div>
+		<div>
+			{{form.date_start}}
+		</div>
+		<div>
+			{{form.date_end}}
+		</div>
+		<input type="submit" value="Vote" />
+	</form>
+{% endblock %}
